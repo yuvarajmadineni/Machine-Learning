@@ -20,6 +20,7 @@ y = dataset.iloc[:, 3].values
 
 """
 we use Imputer because if there are some missing values in the data set we can arrange them by keeping mean, median values in the missing column
+axis is for columns or rows
 """
 from sklearn.preprocessing import Imputer
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
@@ -39,3 +40,19 @@ o = OneHotEncoder(categorical_features = [0])
 X = o.fit_transform(X).toarray()
 le_y = LabelEncoder()
 y = le_y.fit_transform(y)
+
+
+"""
+we always test and train the data, so we divide the data into ttwo parts one for testing and one for training, always testing values will compare with every values for training section.
+"""
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state =0)
+
+"""
+feature scaling is to tranform the different range of values to the minimal range so that the calucations may be easy to analyze
+
+"""
+from sklearn.preprocessing import StandardScaler
+sc_x = StandardScaler()
+X_train = sc_x.fit_transform(X_train)
+X_test = sc_x.transform(X_test)
