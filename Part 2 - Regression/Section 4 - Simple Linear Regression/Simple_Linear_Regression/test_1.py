@@ -34,3 +34,5 @@ X_test = sc_x.transform(X_test)
 from sklearn.linear_model import LinearRegression
 reg = LinearRegression()
 reg.fit(X_train, y_train)
+
+y_pred = reg.predict(X_test)
