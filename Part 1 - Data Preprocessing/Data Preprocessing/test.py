@@ -54,5 +54,5 @@ feature scaling is to tranform the different range of values to the minimal rang
 """
 from sklearn.preprocessing import StandardScaler
 sc_x = StandardScaler()
-X_train = sc_x.fit_transform(X_train)
-X_test = sc_x.transform(X_test)
+X_t = sc_x.fit_transform(X_train)
+X_te = sc_x.transform(X_test)
